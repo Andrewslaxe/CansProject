@@ -6,11 +6,13 @@ import thunk from 'redux-thunk'
 import {notificationReducer} from './reducers/notificationReducer'
 import {canReducer} from './reducers/canReducer'
 import {loginReducer} from "./reducers/loginReducer";
+import {filterReducer} from "./reducers/filterReducer";
 
 const reducer = combineReducers({
   notification: notificationReducer,
   cans: canReducer,
-  user: loginReducer
+  user: loginReducer,
+  filter: filterReducer
 })
 
 const store = configureStore(

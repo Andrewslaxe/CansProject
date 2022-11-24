@@ -7,7 +7,7 @@ export const canReducer = (state = [], action) => {
     case '@can/create':
       return [...state, action.can]
     case '@can/delete':
-      return state.filter(can => can.id !== action.id)
+      return state.filter(can => can.canID.toString() !== action.id)
     case '@can/update':
       return state.map(can => can.id === action.can.id ? action.can : can)
     default:

@@ -1,14 +1,15 @@
 import {useState} from "react";
 import {connect} from "react-redux";
 import {Button, Form} from "react-bootstrap";
+
 import {login, logout} from "../reducers/loginReducer";
 import {getCans} from "../reducers/canReducer";
 import {setNotification} from "../reducers/notificationReducer";
 
 const LoginForm = (props) => {
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-
   const handleLogin = async (event) => {
     event.preventDefault()
     try {
@@ -37,7 +38,6 @@ const LoginForm = (props) => {
                   placeholder='Username'
                   onChange={({target}) => setUsername(target.value)}
                 />
-                <Form.Text style={{fontSize: "1.1rem"}}>We'll never share your email</Form.Text>
               </Form.Group>
               <Form.Group id={'password'}>
                 <Form.Label style={{color: "#0d6efd", fontSize: "1.3rem"}}>Password</Form.Label>
@@ -49,6 +49,7 @@ const LoginForm = (props) => {
                   placeholder='Password'
                   onChange={({target}) => setPassword(target.value)}
                 />
+                <Form.Text style={{fontSize: "1.1rem"}}>We'll never share your password</Form.Text>
               </Form.Group>
               <br/>
               <div className={"col text-center"}>

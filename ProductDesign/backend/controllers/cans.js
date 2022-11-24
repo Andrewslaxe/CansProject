@@ -24,7 +24,6 @@ cansRouter.get('/', async (request, response) => {
       email: 1,
       role: 1
     })
-    console.log("cans", cans)
     response.json(cans)
   }
 })
@@ -57,17 +56,10 @@ cansRouter.delete('/:id', async (request, response) => {
     return response.status(401).json({error: 'token missing or invalid'})
   }
   if (decodedToken.role === 'Admin') {
-    await Can.findByIdAndRemove(request.params.id)
+    await Can.findOneAndRemove({canID: request.params.id})
   } else if (decodedToken.role === 'User') {
-    const cans = await Can.find({userID: decodedToken.userID}).populate(
-      'userID',
-      {username: 1, email: 1, role: 1}
-    )
-    cans.forEach((can) => {
-      if (can.canID === request.params.id) {
-        Can.findByIdAndRemove(request.params.id)
-      }
-    })
+    const theuser = await User.findOne({userID: decodedToken.userID})
+    await Can.findOneAndRemove({canID: request.params.id, userID: theuser._id})
   }
   response.status(204).end()
 })
@@ -79,7 +71,6 @@ cansRouter.put('/:id', async (request, response) => {
     return response.status(401).json({error: 'token missing or invalid'})
   }
   const user = await User.findOne({userID: decodedToken.userID})
-  console.log('user', user)
   const can = {
     canID: body.canID,
     storage: body.storage,
