@@ -1,50 +1,26 @@
 div {
-    color: #f7f9fb;
+  color: #f7f9fb;
 }
 
-td, th {
-    color: #fff;
-}
-
-body {
-    background-color: #333;
+td,
+th {
+  color: #fff;
 }
 
 .Button {
-    color: #0bf593;
+  color: #0bf593;
 }
 
-
 .div-wrapper {
-    height: 200px;
-    margin-top: 40px;
-    border: 2px dashed #ddd;
-    border-radius: 8px;
+  height: 200px;
+  margin-top: 40px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
 }
 
 .div-to-align {
-    width: 105%;
-    padding: 40px 20px;
+  width: 105%;
+  padding: 40px 20px;
 
-    /* .... */
-}
-
-.success {
-    color: rgb(94, 187, 94);
-    background: lightgrey;
-    font-size: 20px;
-    border-style: solid;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.error {
-    color: rgb(144, 69, 69);
-    background: lightgrey;
-    font-size: 20px;
-    border-style: solid;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+  /* .... */
 }
