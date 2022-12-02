@@ -93,9 +93,11 @@ cansRouter.put('/:id', async (request, response) => {
     )
     cans.forEach((can) => {
       if (can.canID === request.params.id) {
-        const updatedCan = Can.findByIdAndUpdate(request.params.id, can, {
-          new: true
-        })
+        const updatedCan = Can.findOneAndUpdate(
+          {canID: request.params.id},
+          can,
+          {new: true}
+        )
         response.json(updatedCan)
       }
     })
